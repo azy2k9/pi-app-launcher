@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import AppCard from "./components/AppCard";
+import { SimpleGrid } from "@chakra-ui/react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <SimpleGrid columns={[2, null, null, 3]} spacing="40px">
+      <AppCard
+        title="Portainer"
+        url="https://192.168.68.66:9443/#!/2/docker/containers"
+        imgPath="/portainer.svg"
+      />
+      <AppCard
+        title="Jellyfin"
+        url="http://192.168.68.66:8096/web/index.html#!/home.html"
+        imgPath="/jellyfin.svg"
+      />
+      <AppCard
+        title="Transmission"
+        url="http://192.168.68.66:9091/transmission/web"
+        imgPath="/transmission.svg"
+      />
+      <AppCard
+        title="Shoko Server"
+        url="http://192.168.68.66:8111/webui/dashboard"
+        imgPath="/shoko.svg"
+      />
+      <AppCard
+        title="Home Assistant"
+        url="http://192.168.68.66:8123/lovelace/0"
+        imgPath="/home_assistant.svg"
+      />
+    </SimpleGrid>
+  );
 }
 
-export default App
+export default App;
